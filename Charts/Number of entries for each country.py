@@ -1,5 +1,4 @@
 import warnings
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -7,6 +6,7 @@ import pandas as pd
 warnings.filterwarnings("ignore")
 
 plt.rcParams['figure.dpi'] = 140
+
 # Load data from csv file
 df = pd.read_csv('../Netflix.csv', sep=';')
 
@@ -15,7 +15,7 @@ df['count'] = 1
 
 # Bar plot showing how many entries there are for each country
 
-data = df.groupby('Country')['count'].sum().sort_values(ascending=False)[:5]
+data = df.groupby('Country')['count'].sum().sort_values(ascending=False)
 
 # Plot
 
@@ -54,7 +54,7 @@ plt.axhline(y=0, color='black', linewidth=1.3, alpha=.7)
 ax.tick_params(axis='both', which='major', labelsize=12)
 
 # Show plot
-ax.tick_params(axis=u'both', which=u'both', length=0)
+ax.tick_params(axis='both', which=u'both', length=0)
 
 plt.show()
 

@@ -33,10 +33,10 @@ upperLimit = 1400
 lowerLimit = 90
 labelPadding = 30
 
-# Compute max and min in the dataset
+# Compute max in the dataset
 max = data.max()
 
-# Let's compute heights: they are a conversion of each item value in those new coordinates
+# Compute heights: they are a conversion of each item value in those new coordinates
 slope = (max - lowerLimit) / max
 heights = slope * data.values + lowerLimit
 
