@@ -8,10 +8,12 @@ warnings.filterwarnings("ignore")
 df = pd.read_csv('../Netflix.csv', sep=';')
 
 # Format the 'Duration' column and Start Time column
+
 df['Duration'] = pd.to_timedelta(df['Duration'])
 df['Start Time'] = pd.to_datetime(df['Start Time'])
 
 # Filter the data for 2022
+
 data_2022 = df[df['Start Time'].dt.year == 2022]
 monthly_duration_2022 = data_2022.groupby(data_2022['Start Time'].dt.month)['Duration'].sum().sort_values(
     ascending=False)
@@ -60,6 +62,7 @@ plt.xlabel("Month", fontsize=12, fontweight='light', fontfamily='serif', loc='ce
 plt.ylabel("Duration (Hours)", fontsize=12, fontweight='light', fontfamily='serif', loc='center', x=-1.5)
 
 # Show plot
+
 ax.tick_params(axis='both', which='both', length=0)
 
 plt.show()
